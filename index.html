@@ -1,0 +1,56 @@
+<html>
+<body bgcolor="white">
+<style>
+ * {
+   font: 16px Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+   color: #232323;
+ }
+</style>
+
+<center><div style="width:80%;text-align:justify">
+<p>
+<span style='font-weight:bold;font-size:18px'>Improvements to the Underground</span>
+</p>
+
+<p>
+Normally I can empathize with the situation here, as I write software for a living and have been in this game for two decades.  I often deal with legacy and/or complex systems and integrating (making them 'talk') to other systems, so I understand the frustration and flat-out suck involved with attempting to modernize the stale platform our beloved UG unfortunately lives on.
+</p>
+
+<p>
+At this point though, the unfulfilled promises, the de-evolution of the site, etc, is pretty ridiculous, especially for a site with so many loyal and long time paying subscribers.  If I had the freetime, I'd dive in and help, for free, I love this place and despite the platform, I can't see myself leaving.
+</p>
+
+<p>
+The mobile platform is the most concerning. The last update on iOS was Jan 2014, 29 months ago.  29 months.  The SDK the app is currently compiled against is no longer accepted in the App Store.  Text has to scale up on phones with the largest screen sizes.  No universal layout for iPad.
+</p>
+
+<p>
+About two years ago I started working on a frontend for iOS to make forum usage a bit more sane and useful.  I posted on the OG asking for information on the services/APIs the current mobile app used to help me work on my side project -- as one might guess, that thread heard crickets and died off.  I took to reverse engineering things for myself.  First step was taking the IPA (the app file) from a jailbroken iPhone and using a disassembler to decompile the binary into pseudo-code to learn how the app worked.  Second step was inspecting traffic between my device and the network while using the app, to learn how the app communicates with the servers @ mma.tv, which would then give me enough to start making my homegrown app useful.  It was then I ran across a pretty gnarly security issue (that honestly made me say FU to Adept in my head).  Frustrated, but optimistic for an update, I kept it to myself and thought surely this would be handled as the platform was refactored and a new app released.  Obviously, we're still _loyally_ plugging away on the same mobile app.
+</p>
+
+<p>
+This thread made me remember the issue and now I'll disclose it -- maybe the disclosure can help get the wheels turning a bit faster.
+</p>
+
+<p>
+<center>
+<img src="http://i.imgur.com/aDX3ica.png" alt="save-the-ug" />
+</center>
+</p>
+
+<p>
+In the screenshot above you're seeing web requests made from the app to its backend on mixedmartialarts.com.  The highlighted section is the request for concern.  Not only are user credentials being sent in plain-text over non-SSL HTTP, they are part of a GET request, meaning your username/email and password are sitting directly in the URL.  What's this mean?  If you're on a public network, coffee shop wifi, browsing at the library, etc, your user credentials are exposed to everyone else on that network.  A shady kid with little skill and just a taste of basic networking knowledge can literally grab your username and password to the site from the air.  With people often using the same password for multiple services, this is a huge problem.  Please make sure your password here is something unique.
+</p>
+
+<p>
+UG, it straight up hurts to have to drop info like this -- we love you -- as a majority, we're not going anywhere.  Please reciprocate that love and get these 'top men' to step it up a f-ing notch.  You owe it to us.
+</p>
+
+<p>
+Patrons of this thread, don't let this thread die. Ensure your credentials here are unique and let other folks know to do the same.
+</p>
+
+</div></center>
+
+</body>
+</html>
